@@ -20,5 +20,15 @@ nav ul{
 }
 body{
     margin: 0;
+    padding: 1rem;
     font-family: sans-serif;
+}
+.input-div{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
+}
+.input-type{
+    display: flex;
+    margin-bottom: 1rem;
 }
