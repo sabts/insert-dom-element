@@ -15,6 +15,10 @@ const findButtonElement = document.getElementById("find-button");
 const historyElement = document.getElementById("supply-history")
 
 //elementos 4
+const divCarsElement = document.getElementById('div-cars')
+const dangerButtonElement = document.getElementById("danger-button")
+const trafficZoneElement = document.getElementById("traffic-zone");
+const warningTextElement = document.getElementById('warning-text')
 
 const supplies = [
   'a medkit',
@@ -39,6 +43,11 @@ const supplies = [
     ];
 
     let day = 0;
+
+    const cars = ['🚗', '🚕', '🚙'];
+
+    let carsHistory = [];
+
 //1️⃣Crea un input donde el usuario pueda escribir su nombre y un botón con el texto "Say hello". Al pulsar el botón, se debe crear e insertar un elemento h2 con el texto "Hello, [nombre]".
 const greetings = event => {
   const inputMinLength = 3;
@@ -118,10 +127,33 @@ const abbyFindingSupplies = () =>{
          historyElement.append(dayJourney);
 }
 
-//4️⃣ 🏃‍♀️💥 Bego Runner: Modo “Esquivar Coches” ON
+//4️⃣ 🏃‍♀️💥 Bego Runner: Modo “Esquivar Coches” ON  //no lo he terminado, porque me trabe en el const de repating cars...
+const repeatingCars = (car) => {
+ if(carsHistory.length === 3 && car === car) /// primero innte hacer una funcion generica para cada coche, pero la advertencia me sale al segundo carro igual
+  return warningTextElement.textContent =`Bego, please be careful! This car model ${car} is stalking you! 🚨` //queria que aqui me saliera el modelo del coche que se esta repidiendo pero siempre me sale el azul
+  }
 
+  //por los momentos esto genera sin problema los coches, pero como estoy con lo anterior, no he confirmado si el mensaje me daria error o no
+  const begoWatchOut = () => {
+   
+    const carsBehindBego = document.createElement('p');
+  
+    const randomCar = cars[Math.floor(Math.random() * cars.length)];
+    carsHistory.push(randomCar)
+
+    repeatingCars(cars[0]);
+    repeatingCars(cars[1]);
+    repeatingCars(cars[2]);
+  
+    carsBehindBego.textContent = randomCar;
+    trafficZoneElement.append(carsBehindBego);
+
+    //dangerButtonElement.addEventListener('click',() => {
+    //warningTextElement.textContent = ""}
+  };
 
 inputButtonElement.addEventListener("click", greetings);
 rangeElement.addEventListener("input",rangeValueInLabel)
 rangeButtonElement.addEventListener("click", generateHRange);
-findButtonElement.addEventListener("click",abbyFindingSupplies)
+findButtonElement.addEventListener("click",abbyFindingSupplies);
+dangerButtonElement.addEventListener('click', begoWatchOut);

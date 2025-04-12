@@ -32,3 +32,7 @@ body{
     display: flex;
     margin-bottom: 1rem;
 }
+.cars-flex{
+    display: flex;
+    gap: 0.5rem;
+}
