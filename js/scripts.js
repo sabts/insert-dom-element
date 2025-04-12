@@ -133,7 +133,7 @@ const repeatingCars = (car) => {
   return warningTextElement.textContent =`Bego, please be careful! This car model ${car} is stalking you! 🚨` //queria que aqui me saliera el modelo del coche que se esta repidiendo pero siempre me sale el azul
   }
 
-  //por los momentos esto genera sin problema los coches, pero como estoy con lo anterior, no he confirmado si el mensaje me daria error o no
+  //por los momentos esto genera sin problema los coches, pero como estoy con lo anterior, no he confirmado si el mensaje me da error o no
   const begoWatchOut = () => {
    
     const carsBehindBego = document.createElement('p');
